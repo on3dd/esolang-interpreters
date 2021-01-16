@@ -3,14 +3,7 @@ type InterpreterState = {
   output: string;
 };
 
-type Commands = {
-  '.': '.';
-  '+': '+';
-};
-
-type Command = keyof Commands;
-
-const COMMANDS: Commands = {
+const COMMANDS = {
   '+': '+',
   '.': '.',
 };
@@ -32,7 +25,7 @@ export const myFirstInterpreter = (code: string): string => {
   };
 
   const interprete = (char: string, state: InterpreterState) => {
-    switch (char as Command) {
+    switch (char) {
       case COMMANDS['+']:
         return add(state);
 
